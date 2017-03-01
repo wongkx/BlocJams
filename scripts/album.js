@@ -28,6 +28,21 @@ var albumMarconi = {
     ]
 };
 
+var albumWong = {
+    title: 'Fruits Are Yummy',
+    artist: 'Kevin Wong',
+    label: 'The Waterfront Regulator',
+    year: '2017',
+    albumArtUrl: 'assets/images/album_covers/04.png',
+    songs: [
+        { title: 'Apples', duration: '1:00'},
+        { title: 'Oranges', duration: '3:05'},
+        { title: 'Mangoes', duration: '3:21'},
+        { title: 'Bananas', duration: '1:55:30'},
+        { title: 'Strawberries', duration: '2:09'},
+    ]
+};
+
 var createSongRow = function(songNumber, songName, songLength) {
     var template =
         '<tr class="album-view-song-item">'
@@ -58,6 +73,18 @@ var setCurrentAlbum = function(album){
     }
 };
 
+
+
+var albums = [albumPicasso, albumMarconi, albumWong];
+var albumCover = document.getElementsByClassName('album-cover-art');
+
+var arrayRotate = function(){
+    albums.push(albums.shift());
+    setCurrentAlbum(albums[0]);
+};
+
 window.onload = function() {
     setCurrentAlbum(albumPicasso);
-}
+    albumCover[0].addEventListener('click', arrayRotate);
+};
+
