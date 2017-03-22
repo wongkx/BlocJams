@@ -15,7 +15,7 @@
 
  .player-bar a,
  .player-bar a:hover {
-     color: white;
+     /*color: white;*/
      cursor: pointer;
      text-decoration: none;
  }
